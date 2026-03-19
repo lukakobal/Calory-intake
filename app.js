@@ -21,6 +21,10 @@ export default function App() {
     setCalories("");
   }
 
+  function deleteMeal(id) {
+    setMeals(meals.filter((meal) => meal.id !== id));
+  }
+
   const totalCalories = meals.reduce((total, meal) => {
     return total + Number(meal.calories);
   }, 0);
@@ -48,6 +52,7 @@ export default function App() {
         {meals.map((meal) => (
           <div key={meal.id}>
             {meal.name} — {meal.calories} kcal
+            <button onClick={() => deleteMeal(meal.id)}>❌</button>
           </div>
         ))}
       </div>
