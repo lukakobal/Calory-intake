@@ -1,8 +1,11 @@
 import "./styles.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function App() {
-  const [meals, setMeals] = useState([]);
+  const [meals, setMeals] = useState(() => {
+    const savedMeals = localStorage.getItem("meals");
+    return savedMeals ? JSON.parse(savedMeals) : [];
+  });
   const [calories, setCalories] = useState("");
 
   const [input, setInput] = useState("");
@@ -28,6 +31,10 @@ export default function App() {
   const totalCalories = meals.reduce((total, meal) => {
     return total + Number(meal.calories);
   }, 0);
+
+  useEffect(() => {
+    localStorage.setItem("meals", JSON.stringify(meals));
+  }, [meals]);
 
   return (
     <div className="app">
