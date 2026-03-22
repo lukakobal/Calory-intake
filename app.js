@@ -4,7 +4,16 @@ import { useState, useEffect } from "react";
 export default function App() {
   const [meals, setMeals] = useState(() => {
     const savedMeals = localStorage.getItem("meals");
-    return savedMeals ? JSON.parse(savedMeals) : [];
+
+    const savedDate = localStorage.getItem("date");
+
+    const today = new Date().toDateString();
+
+    if (savedDate === today && savedMeals) {
+      return JSON.parse(savedMeals);
+    }
+
+    return [];
   });
   const [calories, setCalories] = useState("");
 
@@ -34,6 +43,7 @@ export default function App() {
 
   useEffect(() => {
     localStorage.setItem("meals", JSON.stringify(meals));
+    localStorage.setItem("date", new Date().toDateString());
   }, [meals]);
 
   return (
