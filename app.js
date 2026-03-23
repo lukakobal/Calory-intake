@@ -46,6 +46,10 @@ export default function App() {
     localStorage.setItem("date", new Date().toDateString());
   }, [meals]);
 
+  function clearMeals() {
+    setMeals([]);
+  }
+
   return (
     <div className="app">
       <h1>Calorie App</h1>
@@ -64,6 +68,15 @@ export default function App() {
       />
 
       <button onClick={addMeal}>Add</button>
+      <button
+        onClick={() => {
+          if (window.confirm("Delete all meals?")) {
+            clearMeals();
+          }
+        }}
+      >
+        Clear All
+      </button>
 
       <div>
         {meals.map((meal) => (
@@ -76,3 +89,4 @@ export default function App() {
     </div>
   );
 }
+
