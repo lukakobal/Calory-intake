@@ -19,6 +19,8 @@ export default function App() {
 
   const [input, setInput] = useState("");
 
+  const mealCount = meals.length;
+
   function addMeal() {
     if (!input.trim()) return;
 
@@ -54,6 +56,7 @@ export default function App() {
     <div className="app">
       <h1>Calorie App</h1>
       <h2>Total: {totalCalories} kcal</h2>
+      <h3>Meals today: {mealCount}</h3>
 
       <input
         value={input}
@@ -89,4 +92,3 @@ export default function App() {
     </div>
   );
 }
-
