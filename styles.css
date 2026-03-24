@@ -1,10 +1,116 @@
-.app {
-  max-width: 400px;
-  margin: auto;
-  font-family: Arial;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
+body {
+  background: #f4f6f8;
+  display: flex;
+  justify-content: center;
+  padding: 40px 10px;
+}
+
+/* APP CONTAINER */
+.app {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* HEADINGS */
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+h2 {
+  text-align: center;
+  color: #2c7be5;
+  margin-bottom: 5px;
+}
+
+h3 {
+  text-align: center;
+  color: #666;
+  margin-bottom: 20px;
+  font-weight: normal;
+}
+
+/* INPUTS */
 input {
-  padding: 8px;
-  margin-right: 5px;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #2c7be5;
+}
+
+/* BUTTONS */
+button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #2c7be5;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #1a68d1;
+}
+
+/* CLEAR BUTTON (second button style) */
+button:nth-of-type(2) {
+  background: #e55353;
+}
+
+button:nth-of-type(2):hover {
+  background: #c93c3c;
+}
+
+/* MEAL LIST */
+.app > div:last-child {
+  margin-top: 15px;
+}
+
+/* SINGLE MEAL */
+.app > div:last-child div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f7f9fc;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+/* DELETE BUTTON */
+.app > div:last-child button {
+  width: auto;
+  padding: 5px 8px;
+  margin: 0;
+  background: transparent;
+  color: #e55353;
+  font-size: 16px;
+}
+
+.app > div:last-child button:hover {
+  background: rgba(229, 83, 83, 0.1);
 }
