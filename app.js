@@ -82,13 +82,18 @@ export default function App() {
       </button>
 
       <div>
-        {meals.map((meal) => (
-          <div key={meal.id}>
-            {meal.name} — {meal.calories} kcal
-            <button onClick={() => deleteMeal(meal.id)}>❌</button>
-          </div>
-        ))}
+  {meals.length === 0 ? (
+    <p className="empty">No meals added yet 👀</p>
+  ) : (
+    meals.map((meal) => (
+      <div key={meal.id}>
+        {meal.name} — {meal.calories} kcal
+        <button onClick={() => deleteMeal(meal.id)}>❌</button>
       </div>
+    ))
+  )}
+</div>
     </div>
   );
 }
+
